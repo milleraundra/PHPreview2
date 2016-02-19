@@ -14,7 +14,9 @@
     $app->get('/runCount', function() use ($app) {
         $run_count = new CountRepeat;
         $result = $run_count->trackCount($_GET['sentence'], $_GET['word']);
-        return $app['twig']->render('index.html.twig', array('result'=> $result));
+        $count = $result[0];
+        $sentence = $result[1];
+        return $app['twig']->render('index.html.twig', array('count'=> $count, 'sentence'=> $sentence));
     });
 
     return $app;

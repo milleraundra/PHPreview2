@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
         <title>Count Repeat</title>
     </head>
     <body>
@@ -15,8 +16,15 @@
             <button type="submit" name="button">Search</button>
         </form>
         <p>
-            {% if result is not empty %}
-                {{ result }}
+            {% if count is not empty %}
+                {% if count == 1 %}
+                    <h4>Aha! That word occurs only {{count}} time in your sentence.</h4>
+                {% elseif count > 0 %}
+                    <h4>Your selected word appears {{count}} times in your sentence.</h4>
+                {% else %}
+                    <h4>That word never occurs in your sentence. Try another word!</h4>
+                {% endif %}
+                <p>{{ sentence | raw }}</p>
             {% endif %}
         </p>
 

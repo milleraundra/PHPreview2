@@ -14,25 +14,22 @@
         //Word adjustments
             $word_transform = strtolower($input_word);
             $final_word = preg_replace('/[^a-z0-9\s]+/i', '', $word_transform);
+        //Other Resources
             $return_sentence = array();
+            $final_array = array();
             $count = 0;
             foreach ($sentence_array as $index => $word) {
                 if ($sentence_array[$index] == $final_word) {
                     $count += 1;
+                    array_push($return_sentence, "<span class='match'>$sentence_array[$index]</span>");
+                } else {
+                    array_push($return_sentence, $sentence_array[$index]);
                 }
             }
-            if($count == 1) {
-                return "Aha! That word occurs only $count time in your sentence.";
-            } elseif ($count > 0){
-                return "Your selected word appears $count times in your sentence.";
-            } else {
-                return "That word never occurs in your sentence. Try another word!";
-            }
-            // return $count;
-
+            $return_sentence = implode(" ", $return_sentence);
+            array_push($final_array, $count, $return_sentence);
+            return $final_array;
         }
     }
-//if match, array_push($return_sentence, "<span class='match'>$sentence_array[$index]</span>";
-
 
 ?>
