@@ -12,27 +12,27 @@
                 <h1>Count Repeat <br><small>A Simple Search for Successive Sentence Sections</small></h1>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <h2>Exact Word Match:</h2>
                     <form id="form" class="" action="runCount" method="get">
                         <div class="form-group">
-                            <label for="sentence">Enter a word, phrase, or sentence:</label>
+                            <label for="sentence">Enter text:</label>
                             <textarea name="sentence" class="form-control" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="word">Enter a single word search:</label>
                             <input type="text" class="form-control" name="word" value="">
                         </div>
-                        <button class="btn" id="full" type="submit" name="button">Search Full</button>
+                        <button class="btn" id="full" type="submit" name="button">Search Word</button>
                     </form>
                     <p>
                         {% if count is not empty %}
                             {% if sentence == "" %}
                                 <h4>Oops! Please enter something in the search boxes above.</h4>
                             {% elseif count == 1 %}
-                                <h4>Aha! That word occurs {{count}} time in your sentence.</h4>
+                                <h4>Aha! That word occurs {{count}} time.</h4>
                             {% elseif count > 0 %}
-                                <h4>Your selected word appeared {{count}} times in your sentence.</h4>
+                                <h4>Your selected word appeared {{count}} times.</h4>
                             {% else %}
                                 <h4>That word never occurs in your sentence. Try another word!</h4>
                             {% endif %}
@@ -41,29 +41,29 @@
                     </p>
                 </div>
 <!--Second Count Function-->
-                <div class="col-md-6">
-                    <h2>Partial Word Match:</h2>
+                <div class="col-md-5">
+                    <h2>Letter / Phrase Match:</h2>
                     <form id="form" class="" action="partialCount" method="get">
                         <div class="form-group">
-                            <label for="new_sentence">Enter a word, phrase, or sentence:</label>
+                            <label for="new_sentence">Enter text:</label>
                             <textarea name="new_sentence" class="form-control" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="new_word">Enter a single word search:</label>
+                            <label for="new_word">Enter a search:</label>
                             <input type="text" class="form-control" name="new_word" value="">
                         </div>
-                        <button class="btn" id="partial" type="submit" name="button">Search Partial</button>
+                        <button class="btn" id="partial" type="submit" name="button">Search</button>
                     </form>
                     <p>
                         {% if new_count is not empty %}
                             {% if new_sentence == "" %}
                                 <h4>Oops! Please enter something in the search boxes above.</h4>
                             {% elseif new_count == 1 %}
-                                <h4>Aha! That search occurs {{new_count}} time in your sentence.</h4>
+                                <h4>Aha! That search occurs {{new_count}} time.</h4>
                             {% elseif new_count > 0 %}
-                                <h4>Your search appeared {{new_count}} times in your sentence.</h4>
+                                <h4>Your search appeared {{new_count}} times.</h4>
                             {% else %}
-                                <h4>That search never occurs in your sentence. Try again!</h4>
+                                <h4>That search value never occurs. Try again!</h4>
                             {% endif %}
                             <p>{{ new_sentence | raw }}</p>
                         {% endif %}
