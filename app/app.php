@@ -19,6 +19,14 @@
         return $app['twig']->render('index.html.twig', array('count'=> $count, 'sentence'=> $sentence));
     });
 
+    $app->get('/partialCount', function() use ($app) {
+        $run_count = new CountRepeat;
+        $result = $run_count->partialMatch($_GET['new_sentence'], $_GET['new_word']);
+        $count = $result[0];
+        $sentence = $result[1];
+        return $app['twig']->render('index.html.twig', array('new_count' => $count, 'new_sentence' => $sentence));
+    });
+
     return $app;
 
  ?>

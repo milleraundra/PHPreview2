@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2>Exact Word Match:</h2>
-                    <form id="form" class="" action="/runCount" method="get">
+                    <form id="form" class="" action="runCount" method="get">
                         <div class="form-group">
                             <label for="sentence">Enter a word, phrase, or sentence:</label>
                             <textarea name="sentence" class="form-control" rows="5"></textarea>
@@ -23,7 +23,7 @@
                             <label for="word">Enter a single word search:</label>
                             <input type="text" class="form-control" name="word" value="">
                         </div>
-                        <button class="btn" type="submit" name="button">Search</button>
+                        <button class="btn" id="full" type="submit" name="button">Search Full</button>
                     </form>
                     <p>
                         {% if count is not empty %}
@@ -40,10 +40,34 @@
                         {% endif %}
                     </p>
                 </div>
-<!--End First Column-->
+<!--Second Count Function-->
                 <div class="col-md-6">
-                    <h3>Partial Word Match:</h3>
-                    <h5>Functionality is still forthcoming. Your patience is appreciated!</h5>
+                    <h2>Partial Word Match:</h2>
+                    <form id="form" class="" action="partialCount" method="get">
+                        <div class="form-group">
+                            <label for="new_sentence">Enter a word, phrase, or sentence:</label>
+                            <textarea name="new_sentence" class="form-control" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="new_word">Enter a single word search:</label>
+                            <input type="text" class="form-control" name="new_word" value="">
+                        </div>
+                        <button class="btn" id="partial" type="submit" name="button">Search Partial</button>
+                    </form>
+                    <p>
+                        {% if new_count is not empty %}
+                            {% if new_sentence == "" %}
+                                <h4>Oops! Please enter something in the search boxes above.</h4>
+                            {% elseif new_count == 1 %}
+                                <h4>Aha! That search occurs {{new_count}} time in your sentence.</h4>
+                            {% elseif new_count > 0 %}
+                                <h4>Your search appeared {{new_count}} times in your sentence.</h4>
+                            {% else %}
+                                <h4>That search never occurs in your sentence. Try again!</h4>
+                            {% endif %}
+                            <p>{{ new_sentence | raw }}</p>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
 

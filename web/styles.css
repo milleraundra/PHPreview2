@@ -13,11 +13,22 @@ body {
     font-weight: bold;
     font-size: 1.2em;
     color: #3B3561;
+    padding: 1px;
 }
 
 .btn {
     background-color: #363732;
-    color: #fff;
+    margin-bottom: 3%;
+    font-size: 1.2em;
+}
+
+#full {
+    background-color: #A09EBB;
+
+}
+
+#partial {
+    background-color: #D3D0CB;
 }
 
 .btn:hover {
@@ -27,5 +38,8 @@ body {
 h4 {
     border-bottom: 2px solid black;
     padding-bottom: 1.5%;
+}
 
+p {
+    font-size: 1.1em;
 }
