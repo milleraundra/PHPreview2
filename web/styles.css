@@ -23,3 +23,9 @@ body {
 .btn:hover {
     color: #C2D3CD;
 }
+
+h4 {
+    border-bottom: 2px solid black;
+    padding-bottom: 1.5%;
+
+}
