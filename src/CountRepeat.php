@@ -20,10 +20,16 @@
             $count = 0;
             foreach ($sentence_array as $index => $word) {
                 if ($sentence_array[$index] == $final_word) {
-                    $count += 1;
-                    array_push($return_sentence, "<span class='match'>$sentence_array[$index]</span>");
+                    if ($index == 0) {
+                        $sentence_array[$index] = ucfirst($sentence_array[$index]);
+                    }
+                        $count += 1;
+                        array_push($return_sentence, "<span class='match'>$sentence_array[$index]</span>");
                 } else {
-                    array_push($return_sentence, $sentence_array[$index]);
+                    if ($index == 0) {
+                        $sentence_array[$index] = ucfirst($sentence_array[$index]);
+                    }
+                        array_push($return_sentence, $sentence_array[$index]);
                 }
             }
             $return_sentence = implode(" ", $return_sentence);
