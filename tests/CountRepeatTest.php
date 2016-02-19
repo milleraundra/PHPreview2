@@ -47,6 +47,17 @@
 
             $this->assertEquals(array(1, "You <span class='match'>dont</span> have to be great to start but you have to be start to be great"), $result);
         }
+
+        function test_particalMatch()
+        {
+            $new_CountRepeat = new CountRepeat;
+            $input_sentence = "Hey";
+            $input_search = "h";
+
+            $result = $new_CountRepeat->partialMatch($input_sentence, $input_search);
+
+            $this->assertEquals(array(1, "<span class='match'>h</span>ey"), $result);
+        }
     }
 
 

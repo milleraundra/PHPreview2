@@ -45,6 +45,32 @@
                 return $final_array;
             }
         }
+
+        function partialMatch($input_sentence, $input_search)
+        {
+        //Sentence adjustments
+            $sentence_transform = strtolower($input_sentence);
+            $final_sentence = preg_replace('/[^a-z0-9\s]+/i', '', $sentence_transform);
+        //Word adjustments
+            $search_transform = strtolower($input_search);
+            $final_search = preg_replace('/[^a-z0-9\s]+/i', '', $search_transform);
+        //Other Resources
+            $final_array = array();
+            $count = 0;
+        //Begin Functionality
+            if ($final_sentence == "") {
+                $count = 0;
+                array_push($final_array, $count, $final_sentence);
+                return $final_array;
+            } else {
+                $sentence_edit = str_replace($final_search, "<span class='match'>$final_search</span>", $final_sentence);
+                $count = substr_count($sentence_edit, "<span class='match'>");
+                array_push($final_array, $count, $sentence_edit);
+                return $final_array;
+            }
+        }
+
+
     }
 //Random response sentence
 // $result_sentences = array("Check it out! Your word apperas {{count}} times!", "Your word appears {{count}} times in your sentence. Neat!", "I am Yoda! {{count}} times, your word appears.");
