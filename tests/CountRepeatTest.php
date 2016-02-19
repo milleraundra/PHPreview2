@@ -2,7 +2,7 @@
 
     require_once __DIR__."/../src/CountRepeat.php";
 
-    class CountRepeatTest extends PHPUnit_Framework_TestCase;
+    class CountRepeatTest extends PHPUnit_Framework_TestCase
     {
         function test_oneWord()
         {
