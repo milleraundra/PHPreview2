@@ -14,10 +14,12 @@
         //Word adjustments
             $word_transform = strtolower($input_word);
             $final_word = preg_replace('/[^a-z0-9\s]+/i', '', $word_transform);
+
         //Other Resources
             $return_sentence = array();
             $final_array = array();
             $count = 0;
+        //Count function
             foreach ($sentence_array as $index => $word) {
                 if ($sentence_array[$index] == $final_word) {
                     if ($index == 0) {
@@ -37,5 +39,7 @@
             return $final_array;
         }
     }
-
+//Random response sentence
+// $result_sentences = array("Check it out! Your word apperas {{count}} times!", "Your word appears {{count}} times in your sentence. Neat!", "I am Yoda! {{count}} times, your word appears.");
+// $random_result_sentence = $result_sentences[array_rand($result_sentences, 1)];
 ?>
