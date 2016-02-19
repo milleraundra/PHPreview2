@@ -36,6 +36,17 @@
 
             $this->assertEquals("Your selected word appears 4 times in your sentence.", $result);
         }
+
+        function test_punctuationinWords()
+        {
+            $new_CountRepeat = new CountRepeat;
+            $input_sentence = "You don't have to be great to start, but you have to be start to be great";
+            $input_word = "don't";
+
+            $result = $new_CountRepeat->trackCount($input_sentence, $input_word);
+
+            $this->assertEquals("Aha! That word occurs only 1 time in your sentence.", $result);
+        }
     }
 
 

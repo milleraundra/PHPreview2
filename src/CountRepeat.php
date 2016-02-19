@@ -7,13 +7,17 @@
 
         function trackCount($input_sentence, $input_word)
         {
+        //Sentence adjustments
             $sentence_transform = strtolower($input_sentence);
-            $sentence_array = explode(" ", $sentence_transform);
+            $sentence_punctuation = preg_replace('/[^a-z0-9\s]+/i', '', $sentence_transform);
+            $sentence_array = explode(" ", $sentence_punctuation);
+        //Word adjustments
             $word_transform = strtolower($input_word);
+            $final_word = preg_replace('/[^a-z0-9\s]+/i', '', $word_transform);
             $return_sentence = array();
             $count = 0;
             foreach ($sentence_array as $index => $word) {
-                if ($sentence_array[$index] == $word_transform) {
+                if ($sentence_array[$index] == $final_word) {
                     $count += 1;
                 }
             }
