@@ -12,7 +12,7 @@
 
             $result = $new_CountRepeat->trackCount($input_sentence, $input_word);
 
-            $this->assertEquals(1, $result);
+            $this->assertEquals("Aha! That word occurs only 1 time in your sentence.", $result);
         }
 
         function test_noMatch()
@@ -23,18 +23,18 @@
 
             $result = $new_CountRepeat->trackCount($input_sentence, $input_word);
 
-            $this->assertEquals(0, $result);
+            $this->assertEquals("That word never occurs in your sentence. Try another word!", $result);
         }
 
         function test_multipleWords()
         {
             $new_CountRepeat = new CountRepeat;
-            $input_sentence = "To don't have to be great to start, but you have to be start to be great";
+            $input_sentence = "You don't have to be great to start, but you have to be start to be great";
             $input_word = "to";
 
             $result = $new_CountRepeat->trackCount($input_sentence, $input_word);
 
-            $this->assertEquals(5, $result);
+            $this->assertEquals("Your selected word appears 4 times in your sentence.", $result);
         }
     }
 
