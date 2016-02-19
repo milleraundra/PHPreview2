@@ -1,4 +1,25 @@
+body {
+    background-color: #F0EDEE;
+}
+
+
+.page-header {
+    background-color: #8BEDC6;
+    border-bottom: 0px;
+    padding: 3%;
+}
+
 .match {
     font-weight: bold;
-    color: red;
+    font-size: 1.2em;
+    color: #3B3561;
+}
+
+.btn {
+    background-color: #363732;
+    color: #fff;
+}
+
+.btn:hover {
+    color: #C2D3CD;
 }

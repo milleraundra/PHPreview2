@@ -2,31 +2,41 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
         <title>Count Repeat</title>
     </head>
     <body>
-        <h1>Count Repeat</h1>
-        <h2>A Simple Search for Successive Sentence Sections.</h2>
-        <form id="form" class="" action="/runCount" method="get">
-            <label for="sentence">Enter a word, phrase, or sentence:</label>
-            <textarea name="sentence" rows="8" cols="20"></textarea>
-            <label for="word">Enter a single word search:</label>
-            <input type="text" name="word" value="">
-            <button type="submit" name="button">Search</button>
-        </form>
-        <p>
-            {% if count is not empty %}
-                {% if count == 1 %}
-                    <h4>Aha! That word occurs only {{count}} time in your sentence.</h4>
-                {% elseif count > 0 %}
-                    <h4>Your selected word appears {{count}} times in your sentence.</h4>
-                {% else %}
-                    <h4>That word never occurs in your sentence. Try another word!</h4>
+        <div class="container">
+            <div class="page-header">
+                <h1>Count Repeat <br><small>A Simple Search for Successive Sentence Sections</small></h1>
+            </div>
+
+            <form id="form" class="" action="/runCount" method="get">
+                <div class="form-group">
+                    <label for="sentence">Enter a word, phrase, or sentence:</label>
+                    <textarea name="sentence" class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="word">Enter a single word search:</label>
+                    <input type="text" class="form-control" name="word" value="">
+                </div>
+                <button class="btn" type="submit" name="button">Search</button>
+            </form>
+            <p>
+                {% if count is not empty %}
+                    {% if count == 1 %}
+                        <h4>Aha! That word occurs only {{count}} time in your sentence.</h4>
+                    {% elseif count > 0 %}
+                        <h4>Your selected word appears {{count}} times in your sentence.</h4>
+                    {% else %}
+                        <h4>That word never occurs in your sentence. Try another word!</h4>
+                    {% endif %}
+                    <p>{{ sentence | raw }}</p>
                 {% endif %}
-                <p>{{ sentence | raw }}</p>
-            {% endif %}
-        </p>
+            </p>
+        </div>
+
 
     </body>
 </html>
