@@ -23,8 +23,9 @@ To work properly, this application requires:
 Setup instructions:
 * Clone this repository.
 * Go to the root directory.
-* Run 'composer install' in the terminal (to install Twig and Silex functionality).
-* Start local host in root directory.
+* Run `composer install` in the terminal (to install Twig and Silex functionality).
+* Run `apachectl start`.
+* Navigate to the `web` directory and run `php -S localhost:8000`.
 
 ## Known Bugs
 
